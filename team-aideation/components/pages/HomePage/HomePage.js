@@ -2,7 +2,7 @@ import styles from "./HomePage.module.css";
 
 import React, { useState } from "react";
 import Logo from "../../atoms/Logo/Logo";
-import HomePageMVP from "../../pages/HomePageMVP/HomePageMVP";
+import ValueProposition from "../ValueProposition/ValueProposition";
 import { submitRequest } from "../../../utils/gpt3API";
 
 const HomePage = () => {
@@ -28,7 +28,7 @@ const HomePage = () => {
         />
         <button onClick={callAPI}>Submit</button>
       </div>
-      <HomePageMVP/>
+      <ValueProposition/>
     </div>
   );
 };
