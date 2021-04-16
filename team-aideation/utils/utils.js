@@ -1,12 +1,14 @@
+import { useState, useEffect, useLayoutEffect } from "react";
+
 export const applyResize = (
   initialWidth,
   initialHeight,
   containerWidth,
   containerHeight
 ) => {
-  if (initialWidth < containerWidth && initialHeight < containerHeight) {
-    return [initialWidth, initialHeight];
-  }
+  // if (initialWidth < containerWidth && initialHeight < containerHeight) {
+  //   return [initialWidth, initialHeight];
+  // }
 
   const ratio = initialWidth / initialHeight;
   let newHeight = containerHeight;
@@ -45,4 +47,27 @@ export function downloadURI(uri, name) {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+}
+
+export function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: 400,
+    height: 700,
+  });
+
+  useLayoutEffect(() => {
+    function handleResize() {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowDimensions;
 }

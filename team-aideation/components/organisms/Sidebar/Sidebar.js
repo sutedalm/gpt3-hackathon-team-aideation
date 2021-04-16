@@ -3,6 +3,7 @@ import React from "react";
 import TextInput from "../../atoms/TextInput/TextInput";
 
 import Slider from "@material-ui/core/Slider";
+import SidebarTextInputField from "../../molecules/SidebarTextInputField/SidebarTextInputField";
 
 const Sidebar = ({
   content,
@@ -26,26 +27,27 @@ const Sidebar = ({
   };
   return (
     <div className={styles.Container}>
-      <div className={styles.sidebar_labels}>
-        <label> Titel: </label>
-        <TextInput text={content.title} setText={setTitle} />
-
-      </div>
-      <div className={styles.slider}>
+      <SidebarTextInputField
+        label={"Titel:"}
+        text={content.title}
+        setText={setTitle}
+      />
+      <div className={styles.Slider__container}>
         <Slider
           value={sidebarSettings.titleFontSize}
           min={50}
           step={5}
           max={200}
           onChange={handleChange}
+          className={styles.Slider__slider}
         />
       </div>
-      
-      {/* {sidebarSettings.titleFontSize} */}
-      <div className={styles.sidebar_labels}>
-        <label> Hashtags: </label>
-        <TextInput text={content.hashtags} setText={setHashtags} />
-      </div>
+
+      <SidebarTextInputField
+        label={"Hashtags:"}
+        text={content.hashtags}
+        setText={setHashtags}
+      />
     </div>
   );
 };

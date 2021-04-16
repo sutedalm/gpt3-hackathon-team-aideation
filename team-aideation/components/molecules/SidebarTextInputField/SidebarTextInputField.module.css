@@ -1,0 +1,15 @@
+.Container {
+  width: 100%;
+  margin-top: 10px;
+  /* margin-right: 20px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: x-large;
+}
+
+.Container > label {
+  color: #35b6e5;
+  font-family: cursive;
+}

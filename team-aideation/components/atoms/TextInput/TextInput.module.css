@@ -2,9 +2,10 @@
   width: 100%;
   border: 2px solid grey;
   border-radius: 5px;
-  height: 128px;
+  height: 200px;
 }
 
 .TextInput {
   padding: 5px 10%;
+  width: 100%;
 }

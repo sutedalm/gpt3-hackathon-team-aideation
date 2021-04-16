@@ -22,7 +22,7 @@ const ResultPage = () => {
   });
 
   const [sidebarSettings, setSidebarSettings] = useState({
-    titleFontSize: 300,
+    titleFontSize: 100,
   });
 
   const smartphoneBackgroundImageUrl = "/smartphoneMock.png";
@@ -35,40 +35,40 @@ const ResultPage = () => {
 
   return (
     <div className={styles.Container}>
-      <Logo/>
-        <CanvasResizeContainer
-          initialWidth={initialCanvasWidth}
-          initialHeight={initialCanvasHeight}
-        >
-          <Stage>
-            <Layer>
-              <CanvasArticleImage
-                imageUrl={articleImageUrl}
-                draggable={true}
-                canvasHeight={initialCanvasHeight}
-                canvasWidth={initialCanvasWidth}
-              />
-              <CanvasTitle
-                text={content.title}
-                maxWidth={initialCanvasWidth * 0.7}
-                canvasWidth={initialCanvasWidth}
-                canvasHeight={initialCanvasHeight}
-                draggable={true}
-                fontSize={sidebarSettings.titleFontSize}
-              />
-              <CanvasHashtags
-                text={content.hashtags}
-                maxWidth={initialCanvasWidth * 0.7}
-                canvasWidth={initialCanvasWidth}
-                canvasHeight={initialCanvasHeight}
-                draggable={true}
-                fontSize={45}
-              />
-              <Image image={smartphoneBackgroundImage} listening={false} />
-            </Layer>
-          </Stage>
-        </CanvasResizeContainer>
-      
+      <Logo />
+      <CanvasResizeContainer
+        initialWidth={initialCanvasWidth}
+        initialHeight={initialCanvasHeight}
+      >
+        <Stage>
+          <Layer>
+            <CanvasArticleImage
+              imageUrl={articleImageUrl}
+              draggable={true}
+              canvasHeight={initialCanvasHeight}
+              canvasWidth={initialCanvasWidth}
+            />
+            <CanvasTitle
+              text={content.title}
+              maxWidth={initialCanvasWidth * 0.7}
+              canvasWidth={initialCanvasWidth}
+              canvasHeight={initialCanvasHeight}
+              draggable={true}
+              fontSize={sidebarSettings.titleFontSize}
+            />
+            <CanvasHashtags
+              text={content.hashtags}
+              maxWidth={initialCanvasWidth * 0.7}
+              canvasWidth={initialCanvasWidth}
+              canvasHeight={initialCanvasHeight}
+              draggable={true}
+              fontSize={45}
+            />
+            <Image image={smartphoneBackgroundImage} listening={false} />
+          </Layer>
+        </Stage>
+      </CanvasResizeContainer>
+
       <Sidebar
         content={content}
         setContent={setContent}
