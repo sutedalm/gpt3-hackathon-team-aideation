@@ -26,18 +26,26 @@ const Sidebar = ({
   };
   return (
     <div className={styles.Container}>
-      <label>Titel:</label>
-      <TextInput text={content.title} setText={setTitle} />
-      <Slider
-        value={sidebarSettings.titleFontSize}
-        min={50}
-        step={5}
-        max={200}
-        onChange={handleChange}
-      />
-      {sidebarSettings.titleFontSize}
-      <label>Hashtags:</label>
-      <TextInput text={content.hashtags} setText={setHashtags} />
+      <div className={styles.sidebar_labels}>
+        <label> Titel: </label>
+        <TextInput text={content.title} setText={setTitle} />
+
+      </div>
+      <div className={styles.slider}>
+        <Slider
+          value={sidebarSettings.titleFontSize}
+          min={50}
+          step={5}
+          max={200}
+          onChange={handleChange}
+        />
+      </div>
+      
+      {/* {sidebarSettings.titleFontSize} */}
+      <div className={styles.sidebar_labels}>
+        <label> Hashtags: </label>
+        <TextInput text={content.hashtags} setText={setHashtags} />
+      </div>
     </div>
   );
 };

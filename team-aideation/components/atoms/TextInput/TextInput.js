@@ -8,8 +8,7 @@ const TextInput = ({ text, setText }) => {
   };
   return (
     <div className={styles.TextInput}>
-      <input
-        type="text"
+      <textarea
         value={text}
         onChange={handleChange}
         className={styles.TextInput__inputField}

@@ -1,3 +1,31 @@
 .Container {
-  width: 300px;
+  width: 700px;
 }
+
+.Container > CanvasResizeContainer {
+  align-items: center;
+}
+
+.sidebar_labels {
+  margin-top: 10px;
+  margin-right: 20px;
+  text-align: center;
+  font-size: x-large;
+}
+
+.sidebar_labels > label {
+  color: #35b6e5;
+  font-family: cursive;
+}
+
+.slider {
+  margin-top: 10px;
+  width: 350px;
+  align-items: center;
+}
+
+/* .canvas_resize_container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+} */

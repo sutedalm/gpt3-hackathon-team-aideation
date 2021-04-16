@@ -3,6 +3,7 @@ import styles from "./ResultPage.module.css";
 import TextInput from "../../atoms/TextInput/TextInput";
 import useImage from "use-image";
 import CanvasResizeContainer from "../../atoms/CanvasResizeContainer/CanvasResizeContainer";
+import Logo from "../../atoms/Logo/Logo";
 
 import { Image, Layer, Stage, Text } from "react-konva";
 import React, { useState } from "react";
@@ -34,38 +35,40 @@ const ResultPage = () => {
 
   return (
     <div className={styles.Container}>
-      <CanvasResizeContainer
-        initialWidth={initialCanvasWidth}
-        initialHeight={initialCanvasHeight}
-      >
-        <Stage>
-          <Layer>
-            <CanvasArticleImage
-              imageUrl={articleImageUrl}
-              draggable={true}
-              canvasHeight={initialCanvasHeight}
-              canvasWidth={initialCanvasWidth}
-            />
-            <CanvasTitle
-              text={content.title}
-              maxWidth={initialCanvasWidth * 0.7}
-              canvasWidth={initialCanvasWidth}
-              canvasHeight={initialCanvasHeight}
-              draggable={true}
-              fontSize={sidebarSettings.titleFontSize}
-            />
-            <CanvasHashtags
-              text={content.hashtags}
-              maxWidth={initialCanvasWidth * 0.7}
-              canvasWidth={initialCanvasWidth}
-              canvasHeight={initialCanvasHeight}
-              draggable={true}
-              fontSize={45}
-            />
-            <Image image={smartphoneBackgroundImage} listening={false} />
-          </Layer>
-        </Stage>
-      </CanvasResizeContainer>
+      <Logo/>
+        <CanvasResizeContainer
+          initialWidth={initialCanvasWidth}
+          initialHeight={initialCanvasHeight}
+        >
+          <Stage>
+            <Layer>
+              <CanvasArticleImage
+                imageUrl={articleImageUrl}
+                draggable={true}
+                canvasHeight={initialCanvasHeight}
+                canvasWidth={initialCanvasWidth}
+              />
+              <CanvasTitle
+                text={content.title}
+                maxWidth={initialCanvasWidth * 0.7}
+                canvasWidth={initialCanvasWidth}
+                canvasHeight={initialCanvasHeight}
+                draggable={true}
+                fontSize={sidebarSettings.titleFontSize}
+              />
+              <CanvasHashtags
+                text={content.hashtags}
+                maxWidth={initialCanvasWidth * 0.7}
+                canvasWidth={initialCanvasWidth}
+                canvasHeight={initialCanvasHeight}
+                draggable={true}
+                fontSize={45}
+              />
+              <Image image={smartphoneBackgroundImage} listening={false} />
+            </Layer>
+          </Stage>
+        </CanvasResizeContainer>
+      
       <Sidebar
         content={content}
         setContent={setContent}

@@ -2,6 +2,8 @@ import styles from "./HomePage.module.css";
 
 import React, { useState } from "react";
 import Logo from "../../atoms/Logo/Logo";
+import Banner from "../../atoms/Banner/Banner";
+
 import ValueProposition from "../ValueProposition/ValueProposition";
 import { submitRequest } from "../../../utils/gpt3API";
 
@@ -19,7 +21,7 @@ const HomePage = () => {
   return (
     <div>
       <Logo/>
-
+      <Banner/>
       <div className={styles.TextInput}>
         <textarea
           value={text}
