@@ -28,7 +28,7 @@ export async function submitRequestTLDR(text, apiKey) {
       "temperature": 0.3,
       "frequency_penalty": 0.8
     };
-    return submitRequest(params)
+    return submitRequest(params, apiKey)
 } 
 
 export async function submitRequestHashTag(text, apiKey) {
@@ -42,5 +42,5 @@ export async function submitRequestHashTag(text, apiKey) {
       "presence_penalty": 0.0,
       "stop": ["\n"]
     };
-    return submitRequest(params)
+    return submitRequest(params, apiKey)
 }
