@@ -1,17 +1,19 @@
-.br_logo {
-  width: 100px;
-  object-fit: contain;
-  margin: 0 20px;
-  margin-top: 18px;
-}
-
 .TextInput__inputField {
   width: 100%;
   border: 2px solid grey;
   border-radius: 5px;
-  /* border-bottom: 2px solid gray; */
+  height: 256px;
+  resize: none;
 }
 
 .TextInput {
   padding: 5px 10%;
+}
+
+.TextInput > button {
+  width: 200px;
+  height: 30px;
+  float: right;
+  background-color: #35b6e5;
+  font-style: italic;
 }
