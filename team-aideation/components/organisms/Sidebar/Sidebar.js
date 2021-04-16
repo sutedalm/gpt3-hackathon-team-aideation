@@ -7,10 +7,16 @@ const Sidebar = ({ content, setContent }) => {
     setContent({ ...content, title: text });
   };
 
+  const setHashtags = (hashtags) => {
+    setContent({ ...content, hashtags: hashtags });
+  };
+
   return (
-    <div>
+    <div className={styles.Container}>
       <label>Titel:</label>
       <TextInput text={content.title} setText={setTitle} />
+      <label>Hashtags:</label>
+      <TextInput text={content.hashtags} setText={setHashtags} />
     </div>
   );
 };

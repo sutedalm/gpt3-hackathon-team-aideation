@@ -8,15 +8,21 @@ import { Image, Layer, Stage, Text } from "react-konva";
 import React, { useState } from "react";
 import Sidebar from "../../organisms/Sidebar/Sidebar";
 import CanvasTitle from "../../atoms/CanvasTitle/CanvasTitle";
+import CanvasArticleImage from "../../atoms/CanvasArticleImage/CanvasArticleImage";
+import CanvasHashtags from "../../atoms/CanvasHashtags/CanvasHashtags";
 
 const ResultPage = () => {
   const [content, setContent] = useState({
-    title: "title",
-    hashtags: [],
+    title:
+      "Corona Zahlen in Deutschland steigen! Maskenpflicht wird verschärft!",
+    hashtags:
+      "#love #fashion #instagood #style #photooftheday #beautiful #fitness #picoftheday #follow #beauty #like4like #art #ootd #model #cute #followme #repost #instadaily #happy #instagram #makeup #girl #amazing #photography #lifestyle",
     image: "",
   });
 
   const smartphoneBackgroundImageUrl = "/smartphoneMock.png";
+  const articleImageUrl = "./articleImage.jpg";
+
   const [smartphoneBackgroundImage] = useImage(smartphoneBackgroundImageUrl);
 
   const initialCanvasWidth = 1230;
@@ -30,8 +36,29 @@ const ResultPage = () => {
       >
         <Stage>
           <Layer>
-            <CanvasTitle text={content.title} fontSize={200} />
-            <Image image={smartphoneBackgroundImage} />
+            <CanvasArticleImage
+              imageUrl={articleImageUrl}
+              draggable={true}
+              canvasHeight={initialCanvasHeight}
+              canvasWidth={initialCanvasWidth}
+            />
+            <CanvasTitle
+              text={content.title}
+              maxWidth={initialCanvasWidth * 0.7}
+              canvasWidth={initialCanvasWidth}
+              canvasHeight={initialCanvasHeight}
+              draggable={true}
+              fontSize={100}
+            />
+            <CanvasHashtags
+              text={content.hashtags}
+              maxWidth={initialCanvasWidth * 0.7}
+              canvasWidth={initialCanvasWidth}
+              canvasHeight={initialCanvasHeight}
+              draggable={true}
+              fontSize={45}
+            />
+            <Image image={smartphoneBackgroundImage} listening={false} />
           </Layer>
         </Stage>
       </CanvasResizeContainer>
