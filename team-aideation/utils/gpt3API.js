@@ -1,12 +1,6 @@
 const API_URL = 'https://api.openai.com/v1/engines/davinci/completions'; 
 
-async function submitRequest(params) {
-  var apiKey = process.env.OPENAI_SECRET_KEY 
-
-  if(!apiKey){
-    throw new Error("OPENAI_SECRET_KEY environment variable not found.")
-  }
-
+async function submitRequest(params, apiKey) {
   const headers = { 
     'Authorization': `Bearer ${apiKey}`, 
     'Content-Type': 'application/json',
@@ -27,7 +21,7 @@ async function submitRequest(params) {
   return(json.choices[0].text)
 }
 
-export async function submitRequestTLDR(text) {
+export async function submitRequestTLDR(text, apiKey) {
     var params = {
       "prompt": `${text}\n\ntl;dr:`,
       "max_tokens": 60,
@@ -37,7 +31,7 @@ export async function submitRequestTLDR(text) {
     return submitRequest(params)
 } 
 
-export async function submitRequestHashTag(text) {
+export async function submitRequestHashTag(text, apiKey) {
     text = text.replace(/\n/g, '')
     var params = {
       "prompt": `Text: ${text}\n\nSchlüsselwörter:`,
