@@ -20,6 +20,10 @@ const ResultPage = () => {
     image: "",
   });
 
+  const [sidebarSettings, setSidebarSettings] = useState({
+    titleFontSize: 300,
+  });
+
   const smartphoneBackgroundImageUrl = "/smartphoneMock.png";
   const articleImageUrl = "./articleImage.jpg";
 
@@ -48,7 +52,7 @@ const ResultPage = () => {
               canvasWidth={initialCanvasWidth}
               canvasHeight={initialCanvasHeight}
               draggable={true}
-              fontSize={100}
+              fontSize={sidebarSettings.titleFontSize}
             />
             <CanvasHashtags
               text={content.hashtags}
@@ -62,7 +66,12 @@ const ResultPage = () => {
           </Layer>
         </Stage>
       </CanvasResizeContainer>
-      <Sidebar content={content} setContent={setContent} />
+      <Sidebar
+        content={content}
+        setContent={setContent}
+        sidebarSettings={sidebarSettings}
+        setSidebarSettings={setSidebarSettings}
+      />
     </div>
   );
 };

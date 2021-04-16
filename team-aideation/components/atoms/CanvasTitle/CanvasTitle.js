@@ -19,16 +19,6 @@ const CanvasTitle = ({
   const offsetX = maxWidth / 2;
   const offsetY = fontSize * 0.7;
 
-  // useEffect(() => {
-  //   const currentTextWidth = textNode.getTextWidth();
-
-  //   let scale = maxWidth / currentTextWidth;
-
-  //   const newTextWidth = currentTextWidth * scale;
-
-  //   setOffsetX(newTextWidth / 2);
-  // }, [text]);
-
   return (
     <>
       <Text
@@ -39,7 +29,7 @@ const CanvasTitle = ({
         draggable={draggable}
         fontSize={fontSize}
         fontStyle={"bold"}
-        // fontFamily={"WCManoNegraBta"}
+        fontFamily={"Permanent Marker"}
         x={xPos}
         y={yPos}
         offsetX={offsetX}
@@ -53,7 +43,7 @@ const CanvasTitle = ({
         shadowOffsetX={fontSize / 50}
         shadowOffsetY={-fontSize / 40}
         stroke={"white"}
-        strokeWidth={fontSize / 70}
+        strokeWidth={fontSize / 40}
         ref={(node) => (textNode = node)}
       />
     </>
