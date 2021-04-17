@@ -1,5 +1,21 @@
 .banner {
   margin: 0 10px;
   text-align: center;
-  color: #35b6e5;
+  color: #0aa0d6;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.banner > h1 {
+  /* background-color: white;
+  display: inline;
+  padding: 0.5rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone; */
+
+  font-size: 40px;
+}
+
+.banner > p {
+  font-size: 20px;
 }

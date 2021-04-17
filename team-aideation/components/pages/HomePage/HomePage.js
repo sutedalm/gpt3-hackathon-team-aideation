@@ -19,14 +19,14 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <Logo />
-      <Banner />
+    <div className={styles.overall}>
+      <Logo/>
+      <Banner/>
       <div className={styles.TextInput}>
         <textarea
+          className={styles.TextInput__inputField}
           value={text}
           onChange={handleChange}
-          className={styles.TextInput__inputField}
         />
         <button onClick={callAPI}>Submit</button>
       </div>

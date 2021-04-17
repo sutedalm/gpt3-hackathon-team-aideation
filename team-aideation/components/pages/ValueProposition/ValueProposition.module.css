@@ -22,8 +22,10 @@
   margin-top: 100px;
   display: flex;
   justify-content: center;
-  color: #35b6e5;
+  color: #0aa0d6;
   font-style: italic;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .usp_text {
