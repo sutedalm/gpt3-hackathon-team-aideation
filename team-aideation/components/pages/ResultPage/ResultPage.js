@@ -11,6 +11,7 @@ import Sidebar from "../../organisms/Sidebar/Sidebar";
 import CanvasTitle from "../../atoms/CanvasTitle/CanvasTitle";
 import CanvasArticleImage from "../../atoms/CanvasArticleImage/CanvasArticleImage";
 import CanvasHashtags from "../../atoms/CanvasHashtags/CanvasHashtags";
+import PhotoSearch from "../../organisms/PhotoSearch/PhotoSearch";
 
 const ResultPage = () => {
   const [content, setContent] = useState({
@@ -34,48 +35,51 @@ const ResultPage = () => {
   const initialCanvasHeight = 2500;
 
   return (
-    <div className={styles.Container}>
-      <Logo />
-      <CanvasResizeContainer
-        initialWidth={initialCanvasWidth}
-        initialHeight={initialCanvasHeight}
-      >
-        <Stage>
-          <Layer>
-            <CanvasArticleImage
-              imageUrl={articleImageUrl}
-              draggable={true}
-              canvasHeight={initialCanvasHeight}
-              canvasWidth={initialCanvasWidth}
-            />
-            <CanvasTitle
-              text={content.title}
-              maxWidth={initialCanvasWidth * 0.7}
-              canvasWidth={initialCanvasWidth}
-              canvasHeight={initialCanvasHeight}
-              draggable={true}
-              fontSize={sidebarSettings.titleFontSize}
-            />
-            <CanvasHashtags
-              text={content.hashtags}
-              maxWidth={initialCanvasWidth * 0.7}
-              canvasWidth={initialCanvasWidth}
-              canvasHeight={initialCanvasHeight}
-              draggable={true}
-              fontSize={45}
-            />
-            <Image image={smartphoneBackgroundImage} listening={false} />
-          </Layer>
-        </Stage>
-      </CanvasResizeContainer>
+    <>
+      <div className={styles.Container}>
+        <Logo />
+        <CanvasResizeContainer
+          initialWidth={initialCanvasWidth}
+          initialHeight={initialCanvasHeight}
+        >
+          <Stage>
+            <Layer>
+              <CanvasArticleImage
+                imageUrl={articleImageUrl}
+                draggable={true}
+                canvasHeight={initialCanvasHeight}
+                canvasWidth={initialCanvasWidth}
+              />
+              <CanvasTitle
+                text={content.title}
+                maxWidth={initialCanvasWidth * 0.7}
+                canvasWidth={initialCanvasWidth}
+                canvasHeight={initialCanvasHeight}
+                draggable={true}
+                fontSize={sidebarSettings.titleFontSize}
+              />
+              <CanvasHashtags
+                text={content.hashtags}
+                maxWidth={initialCanvasWidth * 0.7}
+                canvasWidth={initialCanvasWidth}
+                canvasHeight={initialCanvasHeight}
+                draggable={true}
+                fontSize={45}
+              />
+              <Image image={smartphoneBackgroundImage} listening={false} />
+            </Layer>
+          </Stage>
+        </CanvasResizeContainer>
 
-      <Sidebar
-        content={content}
-        setContent={setContent}
-        sidebarSettings={sidebarSettings}
-        setSidebarSettings={setSidebarSettings}
-      />
-    </div>
+        <Sidebar
+          content={content}
+          setContent={setContent}
+          sidebarSettings={sidebarSettings}
+          setSidebarSettings={setSidebarSettings}
+        />
+      </div>
+      <PhotoSearch />
+    </>
   );
 };
 
