@@ -28,7 +28,6 @@ export default async (req, res) => {
       hashtags,
       keyword,
     });
-    res.status(500).send("error");
   } else {
     res.status(400).send("bad request");
   }
