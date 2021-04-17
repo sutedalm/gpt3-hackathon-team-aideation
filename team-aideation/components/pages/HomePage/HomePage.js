@@ -15,13 +15,13 @@ const HomePage = () => {
 
   const callAPI = () => {
     console.log("Article is submitted");
-    submitRequest(text);
+    // submitRequest(text);
   };
 
   return (
     <div>
-      <Logo/>
-      <Banner/>
+      <Logo />
+      <Banner />
       <div className={styles.TextInput}>
         <textarea
           value={text}
@@ -30,7 +30,7 @@ const HomePage = () => {
         />
         <button onClick={callAPI}>Submit</button>
       </div>
-      <ValueProposition/>
+      <ValueProposition />
     </div>
   );
 };
