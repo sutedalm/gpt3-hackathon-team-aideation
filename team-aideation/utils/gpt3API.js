@@ -57,6 +57,16 @@ function createHashTagPrompt(text) {
   `;
 }
 
+function createKeywordPrompt(text) {
+  return `Schreibe das wichtigste zusammenfassende Wort in folgendem Artikel für einen Titel:
+""""""
+${text}
+""""""
+Die passendsden Wörter sind:
+""""""
+`;
+}
+
 export async function submitRequestTLDR(text, apiKey) {
   var params = {
     prompt: createTLDRPromt(text),
@@ -74,6 +84,21 @@ export async function submitRequestHashTag(text, apiKey) {
   var params = {
     prompt: createHashTagPrompt(text),
     max_tokens: 60,
+    temperature: 0,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    best_of: 1,
+    stop: ['""""""'],
+  };
+  return submitRequest(params, DAVINCI_INSTRUCT_API_URL, apiKey);
+}
+
+export async function submitRequestKeyWord(text, apiKey) {
+  text = text.replace(/\n/g, "");
+  var params = {
+    prompt: createKeywordPrompt(text),
+    max_tokens: 25,
     temperature: 0,
     top_p: 1,
     frequency_penalty: 0,

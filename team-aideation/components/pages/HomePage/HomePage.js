@@ -8,10 +8,12 @@ import Banner from "../../atoms/Banner/Banner";
 import ValueProposition from "../ValueProposition/ValueProposition";
 import { submitRequest } from "../../../utils/gpt3API";
 
+const FALLBACK_ARTICLE_IMAGE_URL = "./articleImage.jpg";
+
 const mockResultContent = {
   title: "Corona Zahlen in Deutschland steigen! Maskenpflicht wird verschärft!",
   hashtags: "#love #fashion #instagood #style #photooftheday",
-  imageUrl: "./articleImage.jpg",
+  imageUrl: FALLBACK_ARTICLE_IMAGE_URL,
   keyword: "Maskenpflicht",
 };
 
@@ -24,13 +26,49 @@ const HomePage = () => {
     setText(event.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     console.log("Article is submitted");
     e.preventDefault();
 
-    // submitRequest(text);
-    //TODO: do api request
-    const resultContent = mockResultContent;
+    const res = await fetch("/api/gpt3", {
+      body: JSON.stringify({
+        data: {
+          searchQuery: text,
+        },
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+    const result = await res.json();
+
+    console.log(result);
+    const imageSearchPrompt = result.keyword;
+    const imagesResponse = await fetch("/api/imageSearch", {
+      body: JSON.stringify({
+        data: {
+          keyword: imageSearchPrompt,
+        },
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+    const imagesResult = await imagesResponse.json();
+
+    const articleImageUrl = imagesResult?.images[0]
+      ? imagesResult?.images[0].urls.full
+      : FALLBACK_ARTICLE_IMAGE_URL;
+    console.log(articleImageUrl);
+
+    const resultContent = {
+      ...result,
+      imageUrl: articleImageUrl,
+    };
+
+    console.log(resultContent);
 
     router.push({
       pathname: "/result",
