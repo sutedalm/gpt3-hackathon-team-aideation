@@ -1,8 +1,8 @@
 import styles from "./PhotoSearch.module.css";
 import React, { useState } from "react";
 
-export default function PhotoSearch() {
-  const [query, setQuery] = useState("");
+export default function PhotoSearch({ initialKeyword, onImageUrlUpdate }) {
+  const [query, setQuery] = useState(initialKeyword);
   const [pics, setPics] = useState([]);
 
   const searchPhotos = async (e) => {
@@ -53,6 +53,9 @@ export default function PhotoSearch() {
               src={pic.urls.full}
               width="50%"
               height="50%"
+              onClick={() => {
+                onImageUrlUpdate(pic.urls.full);
+              }}
             ></img>
           </div>
         ))}{" "}

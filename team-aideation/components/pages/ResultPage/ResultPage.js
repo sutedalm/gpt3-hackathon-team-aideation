@@ -13,13 +13,16 @@ import CanvasArticleImage from "../../atoms/CanvasArticleImage/CanvasArticleImag
 import CanvasHashtags from "../../atoms/CanvasHashtags/CanvasHashtags";
 import PhotoSearch from "../../organisms/PhotoSearch/PhotoSearch";
 
+const articleImageUrl = "./articleImage.jpg";
+
 const ResultPage = () => {
   const [content, setContent] = useState({
     title:
       "Corona Zahlen in Deutschland steigen! Maskenpflicht wird verschärft!",
     hashtags:
       "#love #fashion #instagood #style #photooftheday #beautiful #fitness #picoftheday #follow #beauty #like4like #art #ootd #model #cute #followme #repost #instadaily #happy #instagram #makeup #girl #amazing #photography #lifestyle",
-    image: "",
+    imageUrl: articleImageUrl,
+    keyword: "Maskenpflicht",
   });
 
   const [sidebarSettings, setSidebarSettings] = useState({
@@ -27,7 +30,6 @@ const ResultPage = () => {
   });
 
   const smartphoneBackgroundImageUrl = "/smartphoneMock.png";
-  const articleImageUrl = "./articleImage.jpg";
 
   const [smartphoneBackgroundImage] = useImage(smartphoneBackgroundImageUrl);
 
@@ -45,7 +47,7 @@ const ResultPage = () => {
           <Stage>
             <Layer>
               <CanvasArticleImage
-                imageUrl={articleImageUrl}
+                imageUrl={content.imageUrl}
                 draggable={true}
                 canvasHeight={initialCanvasHeight}
                 canvasWidth={initialCanvasWidth}
@@ -78,7 +80,15 @@ const ResultPage = () => {
           setSidebarSettings={setSidebarSettings}
         />
       </div>
-      <PhotoSearch />
+      <PhotoSearch
+        initialKeyword={content.keyword}
+        onImageUrlUpdate={(imageUrl) =>
+          setContent({
+            ...content,
+            imageUrl: imageUrl,
+          })
+        }
+      />
     </>
   );
 };
