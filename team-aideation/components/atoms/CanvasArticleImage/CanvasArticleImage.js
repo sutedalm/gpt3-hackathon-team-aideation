@@ -33,7 +33,7 @@ const CanvasArticleImage = ({
     }
   }, [imageLoadingStatus]);
 
-  return <Image image={image} draggable={draggable} {...shapeProps} />;
+  return <Image image={image} draggable={draggable} {...shapeProps} opacity={0.6} shadowBlur={1} filters={blur}/>;
 };
 
 export default CanvasArticleImage;
