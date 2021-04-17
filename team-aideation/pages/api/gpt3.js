@@ -17,9 +17,14 @@ export default async (req, res) => {
   const gpt3SecretKey = process.env.GPT3_SECRET_KEY;
 
   if (req.method === "POST" && query) {
-    const title = await submitRequestTLDR(query, gpt3SecretKey);
-    const hashtags = await submitRequestHashTag(query, gpt3SecretKey);
-    const keywordsRaw = await submitRequestKeyWord(query, gpt3SecretKey);
+    const [title, hashtags, keywordsRaw] = await Promise.all([
+      submitRequestTLDR(query, gpt3SecretKey),
+      submitRequestHashTag(query, gpt3SecretKey),
+      submitRequestKeyWord(query, gpt3SecretKey),
+    ]);
+    // const title = await submitRequestTLDR(query, gpt3SecretKey);
+    // const hashtags = await submitRequestHashTag(query, gpt3SecretKey);
+    // const keywordsRaw = await submitRequestKeyWord(query, gpt3SecretKey);
 
     const keyword = keywordsRaw.replace(/\n/g, "").replace(/-/g, " ");
 
