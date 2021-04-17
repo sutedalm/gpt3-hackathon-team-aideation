@@ -9,9 +9,9 @@ const TextInput = ({ text, setText }) => {
   return (
     <div className={styles.TextInput}>
       <textarea
+        className={styles.TextInput__inputField}
         value={text}
         onChange={handleChange}
-        className={styles.TextInput__inputField}
       />
     </div>
   );

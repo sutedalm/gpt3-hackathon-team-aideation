@@ -10,6 +10,7 @@
 }
 
 .Container > label {
-  color: #35b6e5;
-  font-family: cursive;
+  color: #0aa0d6;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }

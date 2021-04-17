@@ -11,6 +11,9 @@ import Sidebar from "../../organisms/Sidebar/Sidebar";
 import CanvasTitle from "../../atoms/CanvasTitle/CanvasTitle";
 import CanvasArticleImage from "../../atoms/CanvasArticleImage/CanvasArticleImage";
 import CanvasHashtags from "../../atoms/CanvasHashtags/CanvasHashtags";
+import PhotoSearch from "../../organisms/PhotoSearch/PhotoSearch";
+
+const articleImageUrl = "./articleImage.jpg";
 
 const ResultPage = () => {
   const [content, setContent] = useState({
@@ -18,7 +21,8 @@ const ResultPage = () => {
       "Corona Zahlen in Deutschland steigen! Maskenpflicht wird verschärft!",
     hashtags:
       "#love #fashion #instagood #style #photooftheday #beautiful #fitness #picoftheday #follow #beauty #like4like #art #ootd #model #cute #followme #repost #instadaily #happy #instagram #makeup #girl #amazing #photography #lifestyle",
-    image: "",
+    imageUrl: articleImageUrl,
+    keyword: "Maskenpflicht",
   });
 
   const [sidebarSettings, setSidebarSettings] = useState({
@@ -26,7 +30,6 @@ const ResultPage = () => {
   });
 
   const smartphoneBackgroundImageUrl = "/smartphoneMock.png";
-  const articleImageUrl = "./articleImage.jpg";
 
   const [smartphoneBackgroundImage] = useImage(smartphoneBackgroundImageUrl);
 
@@ -34,48 +37,59 @@ const ResultPage = () => {
   const initialCanvasHeight = 2500;
 
   return (
-    <div className={styles.Container}>
-      <Logo />
-      <CanvasResizeContainer
-        initialWidth={initialCanvasWidth}
-        initialHeight={initialCanvasHeight}
-      >
-        <Stage>
-          <Layer>
-            <CanvasArticleImage
-              imageUrl={articleImageUrl}
-              draggable={true}
-              canvasHeight={initialCanvasHeight}
-              canvasWidth={initialCanvasWidth}
-            />
-            <CanvasTitle
-              text={content.title}
-              maxWidth={initialCanvasWidth * 0.7}
-              canvasWidth={initialCanvasWidth}
-              canvasHeight={initialCanvasHeight}
-              draggable={true}
-              fontSize={sidebarSettings.titleFontSize}
-            />
-            <CanvasHashtags
-              text={content.hashtags}
-              maxWidth={initialCanvasWidth * 0.7}
-              canvasWidth={initialCanvasWidth}
-              canvasHeight={initialCanvasHeight}
-              draggable={true}
-              fontSize={45}
-            />
-            <Image image={smartphoneBackgroundImage} listening={false} />
-          </Layer>
-        </Stage>
-      </CanvasResizeContainer>
+    <>
+      <div className={styles.Container}>
+        <Logo />
+        <CanvasResizeContainer
+          initialWidth={initialCanvasWidth}
+          initialHeight={initialCanvasHeight}
+        >
+          <Stage>
+            <Layer>
+              <CanvasArticleImage
+                imageUrl={content.imageUrl}
+                draggable={true}
+                canvasHeight={initialCanvasHeight}
+                canvasWidth={initialCanvasWidth}
+              />
+              <CanvasTitle
+                text={content.title}
+                maxWidth={initialCanvasWidth * 0.7}
+                canvasWidth={initialCanvasWidth}
+                canvasHeight={initialCanvasHeight}
+                draggable={true}
+                fontSize={sidebarSettings.titleFontSize}
+              />
+              <CanvasHashtags
+                text={content.hashtags}
+                maxWidth={initialCanvasWidth * 0.7}
+                canvasWidth={initialCanvasWidth}
+                canvasHeight={initialCanvasHeight}
+                draggable={true}
+                fontSize={45}
+              />
+              <Image image={smartphoneBackgroundImage} listening={false} />
+            </Layer>
+          </Stage>
+        </CanvasResizeContainer>
 
-      <Sidebar
-        content={content}
-        setContent={setContent}
-        sidebarSettings={sidebarSettings}
-        setSidebarSettings={setSidebarSettings}
+        <Sidebar
+          content={content}
+          setContent={setContent}
+          sidebarSettings={sidebarSettings}
+          setSidebarSettings={setSidebarSettings}
+        />
+      </div>
+      <PhotoSearch
+        initialKeyword={content.keyword}
+        onImageUrlUpdate={(imageUrl) =>
+          setContent({
+            ...content,
+            imageUrl: imageUrl,
+          })
+        }
       />
-    </div>
+    </>
   );
 };
 
