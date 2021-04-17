@@ -7,10 +7,13 @@ import Banner from "../../atoms/Banner/Banner";
 
 import ValueProposition from "../ValueProposition/ValueProposition";
 import { submitRequest } from "../../../utils/gpt3API";
-import { FALLBACK_ARTICLE_IMAGE_URL } from "../../../utils/constants";
+import {
+  EXAMPLE_SEARCH_QUERY,
+  FALLBACK_ARTICLE_IMAGE_URL,
+} from "../../../utils/constants";
 
 const HomePage = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(EXAMPLE_SEARCH_QUERY);
 
   const router = useRouter();
 
