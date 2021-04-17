@@ -7,15 +7,7 @@ import Banner from "../../atoms/Banner/Banner";
 
 import ValueProposition from "../ValueProposition/ValueProposition";
 import { submitRequest } from "../../../utils/gpt3API";
-
-const FALLBACK_ARTICLE_IMAGE_URL = "./articleImage.jpg";
-
-const mockResultContent = {
-  title: "Corona Zahlen in Deutschland steigen! Maskenpflicht wird verschärft!",
-  hashtags: "#love #fashion #instagood #style #photooftheday",
-  imageUrl: FALLBACK_ARTICLE_IMAGE_URL,
-  keyword: "Maskenpflicht",
-};
+import { FALLBACK_ARTICLE_IMAGE_URL } from "../../../utils/constants";
 
 const HomePage = () => {
   const [text, setText] = useState("");

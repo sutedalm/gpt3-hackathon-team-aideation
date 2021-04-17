@@ -1,5 +1,5 @@
 import styles from "./ResultPage.module.css";
-
+import { useRouter } from "next/router";
 import TextInput from "../../atoms/TextInput/TextInput";
 import useImage from "use-image";
 import CanvasResizeContainer from "../../atoms/CanvasResizeContainer/CanvasResizeContainer";
@@ -12,18 +12,13 @@ import CanvasTitle from "../../atoms/CanvasTitle/CanvasTitle";
 import CanvasArticleImage from "../../atoms/CanvasArticleImage/CanvasArticleImage";
 import CanvasHashtags from "../../atoms/CanvasHashtags/CanvasHashtags";
 import PhotoSearch from "../../organisms/PhotoSearch/PhotoSearch";
-
-const articleImageUrl = "./articleImage.jpg";
+import { MOCK_RESULT_CONTENT } from "../../../utils/constants";
 
 const ResultPage = () => {
-  const [content, setContent] = useState({
-    title:
-      "Corona Zahlen in Deutschland steigen! Maskenpflicht wird verschärft!",
-    hashtags:
-      "#love #fashion #instagood #style #photooftheday #beautiful #fitness #picoftheday #follow #beauty #like4like #art #ootd #model #cute #followme #repost #instadaily #happy #instagram #makeup #girl #amazing #photography #lifestyle",
-    imageUrl: articleImageUrl,
-    keyword: "Maskenpflicht",
-  });
+  const router = useRouter();
+  console.log(router.query);
+
+  const [content, setContent] = useState(router.query || MOCK_RESULT_CONTENT);
 
   const [sidebarSettings, setSidebarSettings] = useState({
     titleFontSize: 100,
