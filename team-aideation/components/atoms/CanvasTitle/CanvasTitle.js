@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Group, Text } from "react-konva";
+import { Group, Rect, Text } from "react-konva";
 
 const CanvasTitle = ({
   maxWidth,
@@ -81,6 +81,7 @@ const CanvasTitle = ({
           stroke={"white"}
           strokeWidth={fontSize / 8}
           fillAfterStrokeEnabled={true}
+          fill={"#0aa0d6"}
         />
       </Group>
     </>

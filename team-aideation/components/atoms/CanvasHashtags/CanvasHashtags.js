@@ -18,6 +18,7 @@ const CanvasHashtags = ({
   return (
     <>
       <Text
+        fill={"#0aa0d6"}
         text={text}
         align="center"
         width={maxWidth}
