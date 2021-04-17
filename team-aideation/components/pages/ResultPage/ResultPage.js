@@ -16,12 +16,11 @@ import { MOCK_RESULT_CONTENT } from "../../../utils/constants";
 
 const ResultPage = () => {
   const router = useRouter();
-  console.log(router.query);
 
   const [content, setContent] = useState(router.query || MOCK_RESULT_CONTENT);
 
   const [sidebarSettings, setSidebarSettings] = useState({
-    titleFontSize: 100,
+    titleFontSize: 50,
   });
 
   const smartphoneBackgroundImageUrl = "/smartphoneMock.png";

@@ -10,7 +10,7 @@ const CanvasTitle = ({
   draggable,
 }) => {
   const [xPos, setXPos] = useState(canvasWidth / 2);
-  const [yPos, setYPos] = useState(canvasHeight * 0.25);
+  const [yPos, setYPos] = useState(canvasHeight * 0.15);
   // const [offsetX, setOffsetX] = useState(0);
   // const [offsetY, setOffsetY] = useState(fontSize * 0.7);
 
