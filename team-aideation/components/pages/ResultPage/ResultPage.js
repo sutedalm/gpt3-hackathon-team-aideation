@@ -65,7 +65,7 @@ const ResultPage = () => {
                   canvasWidth={initialCanvasWidth}
                   canvasHeight={initialCanvasHeight}
                   draggable={true}
-                  fontSize={45}
+                  fontSize={60}
                 />
                 <Image image={smartphoneBackgroundImage} listening={false} />
               </Layer>
