@@ -22,7 +22,7 @@ const ResultPage = () => {
   );
 
   const [sidebarSettings, setSidebarSettings] = useState({
-    titleFontSize: 50,
+    titleFontSize: 90,
   });
 
   const smartphoneBackgroundImageUrl = "/smartphoneMock.png";
