@@ -47,13 +47,19 @@ Schreibe eine kurze Zusammenfassung:
 }
 
 function createHashTagPrompt(text) {
-  return `Schreibe verschiedene Hashtags für Twitter über folgenden Artikel:
+  return `Innehalten und Trost: Zentrales Corona-Gedenken in Berlin
+In Berlin kommen heute Regierungsvertreter mit Hinterbliebenen von Corona-Toten zusammen - erst zu einem ökumenischen Gottesdienst und im Anschluss zu einer Gedenkveranstaltung.
+
+"Politik vollzieht sich auch in Symbolen", sagt Bundestagspräsident Schäuble. Ein solches Symbol ist die gemeinsame Trauerfeier mit Hinterbliebenen, das zentrale Gedenken im Konzerthaus am Gendarmenmarkt. Eingeladen hat Bundespräsident Frank-Walter Steinmeier. Ihm geht es um ein gemeinsames Innehalten, um Trost.
+
+Auch für Michaela Mengel, sie hat ihre erst 23-jährige Tochter durch Corona verloren. Andere betrauern den Ehemann, den 67-jährigen Vater, die 80-jährige Mutter. Nur wenige Hinterbliebene werden stellvertretend an dem Gedenkakt teilnehmen, außerdem die Spitzen der Verfassungsorgane und ein Vertreter des Diplomatischen Korps.
+""""""
+Dies sind fünf kurze Hashtags für Twitter zu diesem Artikel:
+#Corona #Regierung #Berlin #Trauer #Coronatote
 """"""
 ${text}
 """"""
-Dies sind fünf kurze Hashtags für Twitter zu diesem Artikel:
-""""""
-  `;
+Dies sind fünf kurze Hashtags für Twitter zu diesem Artikel:`
 }
 
 function createKeywordPrompt(text) {
