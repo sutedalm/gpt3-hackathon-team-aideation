@@ -90,7 +90,7 @@ export async function submitRequestHashTag(text, apiKey) {
     best_of: 1,
     stop: ['""""""'],
   };
-  return submitRequest(params, DAVINCI_INSTRUCT_API_URL, apiKey);
+  return submitRequest(params, DAVINCI_INSTRUCT_API_URL, apiKey).trim();
 }
 
 export async function submitRequestKeyWord(text, apiKey) {
