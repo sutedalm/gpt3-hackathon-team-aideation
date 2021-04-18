@@ -7,7 +7,7 @@
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  background: none repeat scroll 0 0 rgba(150, 150, 150, 0.07);
   border-color: -moz-use-text-color #ffffff #ffffff -moz-use-text-color;
 
   border-style: none solid solid none;
@@ -61,7 +61,7 @@
   background: rgb(167, 205, 255);
   background: linear-gradient(
     0deg,
-    rgba(167, 205, 255, 0.5) 0%,
+    rgba(130, 181, 247, 0.5) 0%,
     rgba(234, 243, 255, 0.5) 72%
   );
 }
