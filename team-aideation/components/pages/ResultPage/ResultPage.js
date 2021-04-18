@@ -17,7 +17,9 @@ import { MOCK_RESULT_CONTENT } from "../../../utils/constants";
 const ResultPage = () => {
   const router = useRouter();
 
-  const [content, setContent] = useState(router.query || MOCK_RESULT_CONTENT);
+  const [content, setContent] = useState(
+    router.query?.content ? router.query : MOCK_RESULT_CONTENT
+  );
 
   const [sidebarSettings, setSidebarSettings] = useState({
     titleFontSize: 50,
@@ -32,40 +34,53 @@ const ResultPage = () => {
 
   return (
     <>
-      <div className={styles.Container}>
+      <div className={styles.Logo__Container}>
         <Logo />
-        <CanvasResizeContainer
-          initialWidth={initialCanvasWidth}
-          initialHeight={initialCanvasHeight}
-        >
-          <Stage>
-            <Layer>
-              <CanvasArticleImage
-                imageUrl={content.imageUrl}
-                draggable={true}
-                canvasHeight={initialCanvasHeight}
-                canvasWidth={initialCanvasWidth}
-              />
-              <CanvasTitle
-                text={content.title}
-                maxWidth={initialCanvasWidth * 0.7}
-                canvasWidth={initialCanvasWidth}
-                canvasHeight={initialCanvasHeight}
-                draggable={true}
-                fontSize={sidebarSettings.titleFontSize}
-              />
-              <CanvasHashtags
-                text={content.hashtags}
-                maxWidth={initialCanvasWidth * 0.7}
-                canvasWidth={initialCanvasWidth}
-                canvasHeight={initialCanvasHeight}
-                draggable={true}
-                fontSize={45}
-              />
-              <Image image={smartphoneBackgroundImage} listening={false} />
-            </Layer>
-          </Stage>
-        </CanvasResizeContainer>
+      </div>
+      <div className={styles.Container}>
+        <main className={styles.MainBody__container}>
+          <CanvasResizeContainer
+            initialWidth={initialCanvasWidth}
+            initialHeight={initialCanvasHeight}
+          >
+            <Stage>
+              <Layer>
+                <CanvasArticleImage
+                  imageUrl={content.imageUrl}
+                  draggable={true}
+                  canvasHeight={initialCanvasHeight}
+                  canvasWidth={initialCanvasWidth}
+                />
+                <CanvasTitle
+                  text={content.title}
+                  maxWidth={initialCanvasWidth * 0.7}
+                  canvasWidth={initialCanvasWidth}
+                  canvasHeight={initialCanvasHeight}
+                  draggable={true}
+                  fontSize={sidebarSettings.titleFontSize}
+                />
+                <CanvasHashtags
+                  text={content.hashtags}
+                  maxWidth={initialCanvasWidth * 0.7}
+                  canvasWidth={initialCanvasWidth}
+                  canvasHeight={initialCanvasHeight}
+                  draggable={true}
+                  fontSize={45}
+                />
+                <Image image={smartphoneBackgroundImage} listening={false} />
+              </Layer>
+            </Stage>
+          </CanvasResizeContainer>
+          <PhotoSearch
+            initialKeyword={content.keyword}
+            onImageUrlUpdate={(imageUrl) =>
+              setContent({
+                ...content,
+                imageUrl: imageUrl,
+              })
+            }
+          />
+        </main>
 
         <Sidebar
           content={content}
@@ -74,15 +89,6 @@ const ResultPage = () => {
           setSidebarSettings={setSidebarSettings}
         />
       </div>
-      <PhotoSearch
-        initialKeyword={content.keyword}
-        onImageUrlUpdate={(imageUrl) =>
-          setContent({
-            ...content,
-            imageUrl: imageUrl,
-          })
-        }
-      />
     </>
   );
 };

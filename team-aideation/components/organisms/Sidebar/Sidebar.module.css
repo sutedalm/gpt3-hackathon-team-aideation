@@ -1,20 +1,23 @@
 .Container {
-  padding: 15px;
-  width: 400px;
+  /* padding: 15px; */
+  padding-top: 2vh;
+  width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  box-shadow: 10px 0 10px -2px rgb(240, 237, 237) inset;
 }
 
-.Container > CanvasResizeContainer {
+/* .Container > CanvasResizeContainer {
   align-items: center;
-}
+} */
 
 .Slider__container {
   margin-top: 10px;
-  padding: 10px;
-  width: 100%;
-  /* width: 350px; */
+  padding: 0 10%;
+  /* width: 100%; */
+  width: 350px;
   align-items: center;
 }
 

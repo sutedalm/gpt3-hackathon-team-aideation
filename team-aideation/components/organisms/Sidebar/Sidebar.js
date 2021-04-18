@@ -4,6 +4,7 @@ import TextInput from "../../atoms/TextInput/TextInput";
 
 import Slider from "@material-ui/core/Slider";
 import SidebarTextInputField from "../../molecules/SidebarTextInputField/SidebarTextInputField";
+import { Drawer, SwipeableDrawer } from "@material-ui/core";
 
 const Sidebar = ({
   content,
