@@ -30,7 +30,8 @@
 
 .TextInput {
   padding: 5px 10%;
-  line-height: 1.4em;
+  /* line-height: 1.4em; */
+  /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
 }
 
 .TextInput > button {
@@ -47,10 +48,12 @@
   box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
+  cursor: pointer;
+  width: 100%;
 }
 
 .TextInput > button:hover {
-  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  box-shadow: 0 0 40px 40px #45a3e2 inset, 0px 0px 10px 5px #52aae459;
 }
 
 .overall {
