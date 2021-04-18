@@ -8,4 +8,5 @@ export const MOCK_RESULT_CONTENT = {
 };
 
 export const EXAMPLE_SEARCH_QUERY =
-  "Der Bayerische Verwaltungsgerichtshof hat das Verbot von touristischen Tagesausflügen für Bewohner von Corona-Hotspots über einen Umkreis von 15 Kilometern hinaus in Bayern vorläufig gekippt. Die textliche Festlegung eines solchen Umkreises sei nicht deutlich genug und verstoße aller Voraussicht nach gegen den Grundsatz der Normenklarheit, entschied das Gericht am Dienstag.";
+  `Auch ohne Sparzinsen: Die Deutschen werden immer reicher. Die Privathaushalte besaßen Ende des vergangenen Jahres knapp sieben Billionen - so viel wie noch nie. Ein Grund dafür: die Corona-Pandemie.
+Mit 6,95 Billionen Euro hat das Geldvermögen der privaten Haushalte 2020 einen neuen Höchstwert erreicht. Im Vergleich zum Ende des dritten Quartals ist das ein Zuwachs von 3,1 Prozent. Die Bundesbank führt das auf die Corona-Krise zurück, in der die Deutschen noch mehr sparen als in normalen Zeiten. Von 100 Euro ihres verfügbaren Einkommens legten die Haushalte mehr als 16 Euro zurück - ebenfalls ein Rekord.`;

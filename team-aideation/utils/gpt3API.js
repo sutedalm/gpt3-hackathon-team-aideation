@@ -27,7 +27,7 @@ function createTLDRPromt(text) {
   return `Der Bayerische Verwaltungsgerichtshof hat das Verbot von touristischen Tagesausflügen für Bewohner von Corona-Hotspots über einen Umkreis von 15 Kilometern hinaus in Bayern vorläufig gekippt. Die textliche Festlegung eines solchen Umkreises sei nicht deutlich genug und verstoße aller Voraussicht nach gegen den Grundsatz der Normenklarheit, entschied das Gericht am Dienstag.
 Gegen den Beschluss gibt es keine Rechtsmittel. Der Kläger, der SPD-Landtagsabgeordnete Christian Flisek, erklärte, die Entscheidung zeige, dass auch in Krisenzeiten auf den Rechtsstaat Verlass sei. Künftige Bußgeldbescheide hätten nun keine Rechtsgrundlage mehr - bei Verstößen wurden bisher 500 Euro fällig.
 ###
-Zusammenfassung:
+Schreibe eine kurze Zusammenfassung:
 
 Menschen in Bayern dürfen ab sofort wieder Ausflüge machen. Ein Gericht hat es erlaubt. Besonders sichere Masken, die FFP2-Masken heißen, sind aber weiter Pflicht.
 ###
@@ -36,24 +36,23 @@ In der schwäbischen Gartenstadt wurde die Gemüsesaison schon vor Ostern eingel
 "Sind die kleinen Pflänzchen mal angewachsen, halten sie aber schon was aus", erklärt Verena Seifried von der Gemüsegärtnerei Seifried. Frostige Temperaturen könne es schließlich noch bis Mitte Mai geben. Bereits erntereif ist das Gemüse im Gewächshaus: Roter Rettich, Salat und Radieschen können seit Ostern geerntet werden, denn hier haben die Gundelfinger etwas nachgeholfen – und geheizt.
 Auch für die Obstbauern der Region bedeuten die Minusgrade aktuell mehr Arbeit. Obstbauer Ulrich Zott aus dem Landkreis Augsburg kontrolliert gerade täglich die Blüten an den Obstbäumen. An den Aprikosenbäumen lassen sich erste Schäden abschätzen: 30 Prozent sind bereits kaputtgegangen.
 ###
-Zusammenfassung:
+Schreibe eine kurze Zusammenfassung:
 
 Das Wetter war sehr kalt. Deshalb haben die Bauern in Schwaben Probleme. Ihre jungen Pflanzen von Obst und Gemüse gehen kaputt.
 ###
 ${text}
 ###
-Zusammenfassung:
-
+Schreibe eine kurze Zusammenfassung:
 `;
 }
 
 function createHashTagPrompt(text) {
   return `Schreibe verschiedene Hashtags für Twitter über folgenden Artikel:
-  """"""
-  ${text}
-  """"""
-  Dies sind unterschiedliche Hashtags für Twitter zu diesem Artikel:
-  """"""
+""""""
+${text}
+""""""
+Dies sind fünf kurze Hashtags für Twitter zu diesem Artikel:
+""""""
   `;
 }
 
@@ -76,17 +75,17 @@ export async function submitRequestTLDR(text, apiKey) {
     best_of: 1,
     stop: "###",
   };
-  return submitRequest(params, DAVINCI_API_URL, apiKey);
+  return submitRequest(params, DAVINCI_INSTRUCT_API_URL, apiKey);
 }
 
 export async function submitRequestHashTag(text, apiKey) {
   text = text.replace(/\n/g, "");
   var params = {
     prompt: createHashTagPrompt(text),
-    max_tokens: 60,
-    temperature: 0,
+    max_tokens: 132,
+    temperature: 0.18,
     top_p: 1,
-    frequency_penalty: 0,
+    frequency_penalty: 0.13,
     presence_penalty: 0,
     best_of: 1,
     stop: ['""""""'],
