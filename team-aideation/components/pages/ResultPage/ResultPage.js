@@ -18,7 +18,7 @@ const ResultPage = () => {
   const router = useRouter();
 
   const [content, setContent] = useState(
-    router.query?.content ? router.query : MOCK_RESULT_CONTENT
+    router.query?.title ? router.query : MOCK_RESULT_CONTENT
   );
 
   const [sidebarSettings, setSidebarSettings] = useState({
