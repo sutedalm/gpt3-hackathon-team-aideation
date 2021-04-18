@@ -1,12 +1,16 @@
 import styles from "./PhotoSearch.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function PhotoSearch({ initialKeyword, onImageUrlUpdate }) {
   const [query, setQuery] = useState(initialKeyword);
   const [pics, setPics] = useState([]);
 
+  useEffect(async () => {
+    await searchPhotos();
+  }, []);
+
   const searchPhotos = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
 
     const res = await fetch("/api/imageSearch", {
       body: JSON.stringify({
