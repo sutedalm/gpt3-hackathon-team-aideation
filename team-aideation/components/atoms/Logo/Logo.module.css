@@ -7,4 +7,5 @@
   /* -webkit-box-shadow: 14px -5px 21px 2px rgba(10, 160, 223, 0.19);
   -moz-box-shadow: 14px -5px 21px 2px rgba(10, 160, 223, 0.19);
   box-shadow: 14px -5px 21px 2px rgba(10, 160, 223, 0.19); */
+  cursor: pointer;
 }
