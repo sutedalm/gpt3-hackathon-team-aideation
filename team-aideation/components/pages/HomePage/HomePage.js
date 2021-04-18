@@ -87,22 +87,21 @@ const HomePage = () => {
 
   return (
     <div className={styles.overall}>
-        <Logo />
-        <Banner />
-        <div className={styles.TextInput}>
-          <textarea
-            className={styles.TextInput__inputField}
-            value={text}
-            onChange={handleChange}
-          />
-          <button onClick={handleSubmit}>Submit</button>
+      <Logo />
+      <Banner />
+      <div className={styles.TextInput}>
+        <textarea
+          className={styles.TextInput__inputField}
+          value={text}
+          onChange={handleChange}
+        />
+        <button onClick={handleSubmit}>Submit</button>
+        <Backdrop className={classes.backdrop} open={loading}>
+          <LoadingScreen/>
+        </Backdrop>
 
-          <Backdrop className={classes.backdrop} open={loading}>
-            <LoadingScreen/>
-          </Backdrop>
-
-        </div>
-        <ValueProposition />
+      </div>
+      <ValueProposition />
     </div>
   );
 };
