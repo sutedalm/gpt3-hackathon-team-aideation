@@ -20,7 +20,7 @@ const ValueProposition = () => {
             height={150}
           />
           </div>
-          <p className={styles.usp_text}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p className={styles.usp_text}> Our service generates Hashtags from your article using GPT-3 and also includes the most trending hashtags on instagram, so that YOU can increase your reach!.</p>
         </div>
 
         <div>
@@ -32,7 +32,7 @@ const ValueProposition = () => {
             height={150}
           />
           </div>
-          <p className={styles.usp_text}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p className={styles.usp_text}> Our service summarizes your article, generates hashtags, and searches for images. If you don't like it, you can always edit the text, images, hashtags by drag-and-drop without any problem!</p>
         </div>
 
         <div>
@@ -44,7 +44,7 @@ const ValueProposition = () => {
             height={150}
           />
           </div>
-          <p className={styles.usp_text}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p className={styles.usp_text}> In average, a content manager needs about 15 minutes to summarize a single article. Our service needs only 10 seconds! You can increase your productivity AND safe time!</p>
         </div>
       </div>
     </div>

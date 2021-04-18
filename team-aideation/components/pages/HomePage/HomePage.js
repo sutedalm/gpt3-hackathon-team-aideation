@@ -4,24 +4,38 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Logo from "../../atoms/Logo/Logo";
 import Banner from "../../atoms/Banner/Banner";
+import Backdrop from '@material-ui/core/Backdrop';
 
 import ValueProposition from "../ValueProposition/ValueProposition";
+import LoadingScreen from "../../atoms/LoadingScreen/LoadingScreen";
 import { submitRequest } from "../../../utils/gpt3API";
 import {
   EXAMPLE_SEARCH_QUERY,
   FALLBACK_ARTICLE_IMAGE_URL,
 } from "../../../utils/constants";
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+}));
+
 const HomePage = () => {
+  const classes = useStyles();
   const [text, setText] = useState(EXAMPLE_SEARCH_QUERY);
+  const [loading, setLoading] = useState(false)
 
   const router = useRouter();
-
   const handleChange = (event) => {
     setText(event.target.value);
   };
 
   const handleSubmit = async (e) => {
+    setLoading({loading: true});
+
     console.log("Article is submitted");
     e.preventDefault();
 
@@ -73,17 +87,22 @@ const HomePage = () => {
 
   return (
     <div className={styles.overall}>
-      <Logo />
-      <Banner />
-      <div className={styles.TextInput}>
-        <textarea
-          className={styles.TextInput__inputField}
-          value={text}
-          onChange={handleChange}
-        />
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
-      <ValueProposition />
+        <Logo />
+        <Banner />
+        <div className={styles.TextInput}>
+          <textarea
+            className={styles.TextInput__inputField}
+            value={text}
+            onChange={handleChange}
+          />
+          <button onClick={handleSubmit}>Submit</button>
+
+          <Backdrop className={classes.backdrop} open={loading}>
+            <LoadingScreen/>
+          </Backdrop>
+
+        </div>
+        <ValueProposition />
     </div>
   );
 };
